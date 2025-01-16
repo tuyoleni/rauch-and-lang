@@ -16,7 +16,7 @@ export function useActiveSection(sectionIds: string[]) {
             }
           })
         },
-        { threshold: 0.3 } // Lowered threshold for earlier detection
+        { threshold: 0.3 }
       )
 
       observer.observe(element)

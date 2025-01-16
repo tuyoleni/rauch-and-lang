@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect } from 'react'
 import { Header } from '@/components/Header'
 import { Hero } from '@/components/Hero'
 import { Features } from '@/components/Features'
@@ -11,6 +10,8 @@ import { Footer } from '@/components/Footer'
 import { ActiveSectionIndicator } from '@/components/ActiveSectionIndicator'
 import { siteData } from '@/app/data'
 import { useActiveSection } from '@/app/hooks/useActiveSection'
+import { useSmoothScroll } from '@/app/hooks/useSmoothScroll'
+
 
 export default function Home() {
   const activeSection = useActiveSection(['home', 'features', 'engineering', 'process', 'contact'])
@@ -19,7 +20,7 @@ export default function Home() {
     <div className="bg-[#0a0a0a] text-[#e0d5c1] min-h-screen">
       <Header activeSection={activeSection} />
       <ActiveSectionIndicator activeSection={activeSection} />
-      <main className="pt-16">
+      <main className="">
         <section id="home" className="min-h-screen">
           <Hero data={siteData.hero} />
         </section>
