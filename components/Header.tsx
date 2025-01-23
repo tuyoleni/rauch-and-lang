@@ -80,7 +80,7 @@ export function Header({ activeSection }: HeaderProps) {
                     alt={`Menu background ${index + 1}`}
                     layout="fill"
                     objectFit="cover"
-                    className="transition-all duration-500 opacity-5"
+                    className="transition-all duration-500 opacity-10"
                   />
                 </motion.div>
               ))}

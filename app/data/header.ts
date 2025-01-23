@@ -1,4 +1,4 @@
-import { display_0, display_2, display_3 } from '@/lib/images'
+import { display_03, feature_1, feature_2, feature_3, process_3, service_1 } from '@/lib/images'
 
 export const headerData = {
   sections: [
@@ -6,14 +6,16 @@ export const headerData = {
     { title: "FEATURES", href: "#features" },
     { title: "ENGINEERING", href: "#engineering" },
     { title: "PROCESS", href: "#process" },
+    { title: "TRAILER", href: "#trailer" },
     { title: "CONTACT", href: "#contact" },
   ],
   backgroundImages: [
-    display_0,
-    display_2,
-    display_3,
-    display_0,
-    display_3,
+    display_03,
+    feature_3,
+    feature_1,
+    process_3,
+    service_1,
+    feature_2,
   ],
 };
 

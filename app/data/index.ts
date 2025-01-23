@@ -5,6 +5,7 @@ import { processData } from './process'
 import { contactData } from './contact'
 import { footerData } from './footer'
 import { headerData } from './header'
+import { trailerData } from './trailer'
 
 export const siteData = {
   hero: heroData,
@@ -14,7 +15,8 @@ export const siteData = {
   contact: contactData,
   footer: footerData,
   header: headerData,
+  trailer: trailerData,
+
 }
 
 export type SiteData = typeof siteData
-
