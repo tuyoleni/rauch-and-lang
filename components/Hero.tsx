@@ -61,7 +61,7 @@ export function Hero({ data }: HeroProps) {
                 src={src || "/placeholder.svg"}
                 alt={`Vintage Car Hero ${index + 1}`}
                 fill
-                className="object-cover opacity-40"
+                className="object-cover opacity-50"
                 style={{
                   width: '100%',
                   height: '100%',

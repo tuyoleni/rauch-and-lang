@@ -30,7 +30,7 @@ export function Process({ data }: ProcessProps) {
               src={process.image || "/placeholder.svg?height=900&width=1200"}
               alt={process.name}
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-110"
+              className="object-cover transition-transform duration-500 group-hover:scale-110 filter grayscale group-hover:grayscale-0"
             />
             <motion.div
               className="absolute inset-0 bg-black bg-opacity-40 transition-opacity duration-500 group-hover:bg-opacity-60"
