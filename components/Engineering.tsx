@@ -11,14 +11,14 @@ export function Engineering({ data }: EngineeringProps) {
   return (
     <section className="max-w-7xl mx-auto">
       <div className="bg-[#111111] px-8 md:px-16 lg:px-24 py-24">
-        <motion.h2
+        {/* <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
           className="text-3xl md:text-4xl font-light mb-16"
         >
           {data.title}
-        </motion.h2>
+        </motion.h2> */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           <motion.div
             initial={{ opacity: 0, x: -50 }}

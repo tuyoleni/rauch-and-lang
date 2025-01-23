@@ -1,20 +1,22 @@
+import { feature_1, feature_2, feature_3 } from '@/lib/images'
+
 export const featuresData = {
   title: "RESTORATION FEATURES",
   features: [
-    { 
-      title: 'BATTERY RENOVATION', 
+    {
+      title: 'BATTERY RENOVATION',
       desc: 'Front and back compartments meticulously restored',
-      image: "/placeholder.svg?height=600&width=800&text=Battery+Renovation"
+      image: feature_1
     },
-    { 
-      title: 'INTERIOR LUXURY', 
+    {
+      title: 'INTERIOR LUXURY',
       desc: 'Burgundy edge-trimmed cloth with pleated seats',
-      image: "/placeholder.svg?height=600&width=800&text=Interior+Luxury"
+      image: feature_3
     },
-    { 
-      title: 'HYBRID SYSTEM', 
+    {
+      title: 'HYBRID SYSTEM',
       desc: 'Advanced hydrogen hybrid technology integration',
-      image: "/placeholder.svg?height=600&width=800&text=Hybrid+System"
+      image: feature_2
     }
   ]
 }

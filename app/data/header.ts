@@ -1,3 +1,5 @@
+import { image1, image2, image3 } from '@/lib/images'
+
 export const headerData = {
   sections: [
     { title: "HOME", href: "#home" },
@@ -7,11 +9,11 @@ export const headerData = {
     { title: "CONTACT", href: "#contact" },
   ],
   backgroundImages: [
-    "/images/home-bg.jpg",
-    "/images/features-bg.jpg",
-    "/images/engineering-bg.jpg",
-    "/images/process-bg.jpg",
-    "/images/contact-bg.jpg",
+    image1,
+    image2,
+    image3,
+    image1,
+    image3,
   ],
 };
 
