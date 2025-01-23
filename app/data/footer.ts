@@ -1,5 +1,5 @@
 export const footerData = {
-  copyright: "© 2023 Rauch & Lang Electric Car. All rights reserved.",
+  copyright: "© 2025 Rauch & Lang Electric Car. All rights reserved.",
   links: ['Privacy', 'Terms', 'Contact']
 }
 
