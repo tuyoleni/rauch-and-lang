@@ -1,4 +1,4 @@
-import { image1, image2, image3 } from '@/lib/images'
+import { display_0, display_2, display_3 } from '@/lib/images'
 
 export const headerData = {
   sections: [
@@ -9,11 +9,11 @@ export const headerData = {
     { title: "CONTACT", href: "#contact" },
   ],
   backgroundImages: [
-    image1,
-    image2,
-    image3,
-    image1,
-    image3,
+    display_0,
+    display_2,
+    display_3,
+    display_0,
+    display_3,
   ],
 };
 
