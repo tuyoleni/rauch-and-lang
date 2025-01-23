@@ -24,7 +24,7 @@ export default function Home() {
           <Hero data={siteData.hero} />
         </section>
 
-        <section className="min-h-96 px-4 sm:px-8 md:px-16 lg:px-24 py-16 justify-center">
+        <section className="px-4 sm:px-8 md:px-16 lg:px-24 py-16 justify-center">
           <p>It was our aim to convert the 100 year old precious historical car, original electric built in 1912 to a long distance Hydrogen Hybrid.  Without any physical damage to its historical inheritance. The car has still the first 106 year old paint.
             Hydrogen Hybrid will be beside Lithium Battery powered cars the future of mobility.
             It combines the torque an agility of the electric engine while charging the battery pack with the fuel cell powered by Solar PV produced Hydrogen.​</p>

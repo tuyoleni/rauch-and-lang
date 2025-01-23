@@ -34,7 +34,7 @@ export function Footer({ data }: FooterProps) {
         </div>
       </div>
       <div className="mt-8 text-center text-sm text-[#a19b8c]">
-        <p>This vintage car showcase website was designed to capture the elegance and innovation of the Rauch & Lang electric car. The dark theme emphasizes the luxury aspect, while the smooth transitions and animations provide a modern touch to the historical content.</p>
+        <p>This vintage car showcase website was designed to capture the elegance and innovation. Emphasizesing the luxury aspect, while the smooth transitions and animations provide a modern touch to the historical content.</p>
         <p className="mt-2">Built with passion by <a href="https://moodbod.design" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#e0d5c1]">moodbod.design</a> <a href="https://www.fessynam.com" target="_blank" rel="noopener noreferrer">fessynam.com</a>.</p>
       </div>
     </footer>

@@ -2,7 +2,7 @@ import './globals.css'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Rauch & Lang Electric Car - Historical Innovation',
+  title: 'ev classic world',
   description: 'A 106-year-old masterpiece reimagined for the future of mobility',
 }
 

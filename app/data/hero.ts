@@ -5,12 +5,9 @@ export const heroData = {
   subtitle: "A masterpiece of engineering, reimagined for the future of mobility",
   scrollText: "Scroll to explore",
   images: [
-    display_0,
     display_1,
+    display_0,
     display_2,
-    display_3,
-    display_4,
-    display_5
   ]
 }
 

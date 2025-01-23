@@ -37,7 +37,7 @@ export function Header({ activeSection }: HeaderProps) {
     <header className="fixed top-0 left-0 right-0 z-50 h-24 flex items-center justify-between px-4 sm:px-8 md:px-16 lg:px-24 bg-gradient-to-b from-black/50 to-transparent">
       <nav className="flex justify-between items-center w-full">
         <a href="#home" className="sm:text-xl font-medium">
-          ev classic.world
+          ev classic world
         </a>
         <div className="flex items-center space-x-4">
           <span className="text-sm font-light hidden sm:inline-block">
