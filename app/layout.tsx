@@ -3,7 +3,7 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'ev classic world',
-  description: 'A 106-year-old masterpiece reimagined for the future of mobility',
+  description: 'A 106 year old masterpiece reimagined for the future of mobility',
 }
 
 export default function RootLayout({
