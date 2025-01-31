@@ -8,12 +8,12 @@ interface ProcessProps {
 
 export function Process({ data }: ProcessProps) {
   return (
-    <section id="process" className="max-w-7xl mx-auto">
+    <section id="process" className="max-w-7xl mx-auto bg-white">
       <motion.h2
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="text-3xl md:text-4xl font-light mb-16 text-center"
+        className="text-3xl md:text-4xl font-light mb-16 text-center text-gray-900"
       >
         {data.title}
       </motion.h2>
@@ -33,14 +33,14 @@ export function Process({ data }: ProcessProps) {
               className="object-cover transition-transform duration-500 group-hover:scale-110 filter grayscale group-hover:grayscale-0"
             />
             <motion.div
-              className="absolute inset-0 bg-black bg-opacity-40 transition-opacity duration-500 group-hover:bg-opacity-60"
+              className="absolute inset-0 bg-white bg-opacity-40 transition-opacity duration-500 group-hover:bg-opacity-60"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             />
             <div className="absolute inset-0 flex flex-col justify-end p-8">
               <motion.h3
-                className="text-2xl font-light mb-2 text-white"
+                className="text-2xl font-light mb-2 text-gray-900"
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
@@ -48,7 +48,7 @@ export function Process({ data }: ProcessProps) {
                 {process.name}
               </motion.h3>
               <motion.p
-                className="text-lg text-[#e0d5c1] opacity-0 transform translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0"
+                className="text-lg text-gray-600 opacity-0 transform translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0"
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 + 0.4 }}
@@ -62,4 +62,3 @@ export function Process({ data }: ProcessProps) {
     </section>
   )
 }
-

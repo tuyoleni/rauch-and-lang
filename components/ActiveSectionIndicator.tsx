@@ -17,7 +17,7 @@ export function ActiveSectionIndicator({ activeSection }: ActiveSectionIndicator
         {['home', 'features', 'engineering', 'process', 'contact'].map((section) => (
           <motion.div
             key={section}
-            className={`w-1 h-1 rounded-full ${activeSection === section ? 'bg-[#e0d5c1]' : 'bg-gray-500'
+            className={`w-1 h-1 rounded-full ${activeSection === section ? 'bg-gray-900' : 'bg-gray-300'
               }`}
             initial={{ scale: 1 }}
             animate={{ scale: activeSection === section ? 1.5 : 1 }}
@@ -28,4 +28,3 @@ export function ActiveSectionIndicator({ activeSection }: ActiveSectionIndicator
     </motion.div>
   )
 }
-

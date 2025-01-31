@@ -1,87 +1,79 @@
-import { motion, useViewportScroll, useTransform, useSpring } from 'framer-motion';
-import Image from 'next/image';
-import { useEffect, useState, useRef } from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import { SiteData } from '@/app/data';
+import Image from 'next/image';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useRef } from 'react';
 
 interface HeroProps {
   data: SiteData['hero'];
 }
 
 export function Hero({ data }: HeroProps) {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const { scrollY } = useViewportScroll();
-  const containerRef = useRef<HTMLDivElement>(null);
+  const slider = useRef<Slider>(null);
 
-  // Transformations based on scroll position
-  const yRange = useTransform(scrollY, [0, 1600], [0, 1]);
-  const opacity = useTransform(yRange, [0, 2, 1], [1, 1, 0]);
+  const next = () => {
+    slider.current?.slickNext();
+  };
 
-  // Scale down (zoom out) only at the end of the scroll
-  const scale = useTransform(yRange, [0.8, 1], [1, 0.8]);
+  const previous = () => {
+    slider.current?.slickPrev();
+  };
 
-  // Smooth transition for yRange
-  const smoothYRange = useSpring(yRange, { stiffness: 100, damping: 30, restDelta: 0.001 });
-
-  // Image index and text opacity transformations
-  const imageIndex = useTransform(smoothYRange, [0, 1], [0, data.images.length - 1]);
-
-
-  // Effect to update current image index
-  useEffect(() => {
-    const unsubscribeImage = imageIndex.onChange(v => {
-      setCurrentImageIndex(Math.round(v));
-    });
-
-    return () => {
-      unsubscribeImage();
-    };
-  }, [imageIndex]);
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    fade: false,
+  };
 
   return (
-    <section ref={containerRef} className="relative h-[300vh]">
-      <motion.div className="sticky top-0 h-screen overflow-hidden" style={{ scale }}>
-        <motion.div
-          className="absolute inset-0"
-          style={{ opacity }}
-        >
-          {data.images.map((src, index) => (
-            <motion.div
-              key={src}
-              className="absolute inset-0"
-              style={{
-                opacity: useTransform(
-                  imageIndex,
-                  [index - 0.5, index, index + 0.5],
-                  [0, 1, 0]
-                ),
-              }}
-              transition={{ duration: currentImageIndex === index ? 1 : undefined }}
-            >
-              <Image
-                src={src || "/placeholder.svg"}
-                alt={`Vintage Car Hero ${index + 1}`}
-                fill
-                className="object-cover opacity-50"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  objectPosition: 'center',
-                }}
-              />
-            </motion.div>
-          ))}
-        </motion.div>
+    <section className="relative h-screen bg-white overflow-hidden">
+      <div className="absolute inset-0 z-20 flex flex-col justify-end pb-24 px-4 sm:px-8 md:px-16 lg:px-24 text-white">
+        <h1 className="text-4xl md:text-6xl font-light mb-6 drop-shadow-lg [text-shadow:_2px_2px_4px_rgba(0,0,0,0.5)]">
+          {data.title}
+        </h1>
+        <p className="text-base md:text-lg font-light max-w-xl drop-shadow-lg [text-shadow:_1px_1px_2px_rgba(0,0,0,0.5)]">
+          {data.subtitle}
+        </p>
+      </div>
 
-        <div className="relative z-10 h-full flex flex-col justify-end pb-24 px-4 sm:px-8 md:px-16 lg:px-24">
-          <h1 className="text-6xl md:text-8xl font-light mb-6">
-            {data.title}
-          </h1>
-          <p className="text-lg md:text-xl font-light max-w-xl">
-            {data.subtitle}
-          </p>
-        </div>
-      </motion.div>
-    </section >
+      <div className="relative h-full">
+        <button
+          onClick={previous}
+          className="absolute left-4 top-1/2 z-20 transform -translate-y-1/2 p-2  m-4 rounded-full bg-white/50 hover:bg-white transition-colors"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft className="w-6 h-6 text-gray-900" />
+        </button>
+
+        <button
+          onClick={next}
+          className="absolute right-4 top-1/2 z-20 transform -translate-y-1/2 p-2 m-4 rounded-full bg-white/50 hover:bg-white transition-colors"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="w-6 h-6 text-gray-900" />
+        </button>
+
+        <Slider ref={slider} {...settings} className="h-full">
+          {data.images.map((image, index) => (
+            <div key={index} className="relative h-screen">
+              <Image
+                src={image}
+                alt={`Slide ${index + 1}`}
+                fill
+                className="object-cover"
+                priority={index === 0}
+              />
+            </div>
+          ))}
+        </Slider>
+      </div>
+    </section>
   );
 }

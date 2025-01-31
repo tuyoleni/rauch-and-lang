@@ -16,7 +16,7 @@ export default function Home() {
   const activeSection = useActiveSection(["home", "features", "engineering", "process", "trailer", "contact"])
 
   return (
-    <div className="bg-[#0a0a0a] text-[#e0d5c1] min-h-screen scroll-smooth">
+    <div className="bg-white text-gray-900 min-h-screen scroll-smooth">
       <Header activeSection={activeSection} />
       <ActiveSectionIndicator activeSection={activeSection} />
       <main>
@@ -43,4 +43,3 @@ export default function Home() {
     </div>
   )
 }
-

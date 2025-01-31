@@ -13,6 +13,17 @@ export function Header({ activeSection }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [currentBackgroundIndex, setCurrentBackgroundIndex] = useState(0)
   const [isTransitioning, setIsTransitioning] = useState(false)
+  const [showBackground, setShowBackground] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY
+      setShowBackground(scrollPosition > window.innerHeight)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   useEffect(() => {
     if (isTransitioning) {
@@ -34,18 +45,18 @@ export function Header({ activeSection }: HeaderProps) {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 h-24 flex items-center justify-between px-4 sm:px-8 md:px-16 lg:px-24 bg-gradient-to-b from-black/50 to-transparent">
+    <header className={`fixed top-0 left-0 right-0 z-50 h-24 flex items-center justify-between px-4 sm:px-8 md:px-16 lg:px-24 transition-colors duration-300 ${showBackground ? 'bg-white' : 'bg-transparent'}`}>
       <nav className="flex justify-between items-center w-full">
-        <a href="#home" className="sm:text-xl font-medium">
+        <a href="#home" className={`sm:text-xl font-medium ${showBackground ? 'text-gray-900' : 'text-white'}`}>
           ev classic world
         </a>
         <div className="flex items-center space-x-4">
-          <span className="text-sm font-light hidden sm:inline-block">
+          <span className={`text-sm font-light hidden sm:inline-block ${showBackground ? 'text-gray-700' : 'text-white'}`}>
             {activeSection !== 'home' ? activeSection.toUpperCase() : ''}
           </span>
           <button
             onClick={() => setIsMenuOpen(true)}
-            className="text-[#e0d5c1] hover:text-white transition-colors"
+            className={showBackground ? 'text-gray-900' : 'text-white'}
             aria-label="Open menu"
           >
             <Menu size={24} />
@@ -60,7 +71,7 @@ export function Header({ activeSection }: HeaderProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: "-100%" }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-black z-50 flex items-center justify-center overflow-hidden"
+            className="fixed inset-0 bg-white z-50 flex items-center justify-center overflow-hidden"
             style={{ height: '100vh', width: '100vw' }}
           >
             <div className="absolute inset-0 overflow-hidden">
@@ -80,14 +91,14 @@ export function Header({ activeSection }: HeaderProps) {
                     alt={`Menu background ${index + 1}`}
                     layout="fill"
                     objectFit="cover"
-                    className="transition-all duration-500 opacity-10"
+                    className="transition-all duration-500 opacity-5"
                   />
                 </motion.div>
               ))}
             </div>
             <motion.button
               onClick={() => setIsMenuOpen(false)}
-              className="absolute top-4 right-4 sm:top-8 sm:right-8 text-[#e0d5c1] hover:text-white transition-colors z-10"
+              className="absolute top-4 right-4 sm:top-8 sm:right-8 text-gray-700 hover:text-gray-900 transition-colors z-10"
               aria-label="Close menu"
               initial={{ opacity: 0, rotate: -90 }}
               animate={{ opacity: 1, rotate: 0 }}
@@ -109,8 +120,8 @@ export function Header({ activeSection }: HeaderProps) {
                     <Link
                       href={section.href}
                       className={`text-xl sm:text-2xl lg:text-3xl font-light transition-colors ${activeSection === section.href.slice(1)
-                        ? 'text-[#e0d5c1]'
-                        : 'text-white hover:text-[#e0d5c1]'
+                        ? 'text-gray-900'
+                        : 'text-gray-600 hover:text-gray-900'
                         }`}
                       onClick={() => setIsMenuOpen(false)}
                       onMouseEnter={() => handleMouseEnter(index)}
@@ -127,4 +138,3 @@ export function Header({ activeSection }: HeaderProps) {
     </header>
   )
 }
-

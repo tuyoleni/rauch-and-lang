@@ -10,7 +10,7 @@ interface EngineeringProps {
 export function Engineering({ data }: EngineeringProps) {
   return (
     <section className="max-w-7xl mx-auto">
-      <div className="bg-[#111111] px-8 md:px-16 lg:px-24 py-24">
+      <div className="bg-white px-8 md:px-16 lg:px-24 py-24">
         {/* <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -26,12 +26,12 @@ export function Engineering({ data }: EngineeringProps) {
             transition={{ duration: 1 }}
             className="space-y-6"
           >
-            <h3 className="text-2xl font-light">{data.subtitle}</h3>
-            <p className="text-[#a19b8c] leading-relaxed">
+            <h3 className="text-2xl font-light text-gray-900">{data.subtitle}</h3>
+            <p className="text-gray-600 leading-relaxed">
               {data.description}
             </p>
             <motion.button
-              className="flex items-center text-sm group"
+              className="flex items-center text-sm group text-gray-900"
               whileHover={{ x: 10 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
@@ -57,4 +57,3 @@ export function Engineering({ data }: EngineeringProps) {
     </section>
   )
 }
-
