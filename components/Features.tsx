@@ -26,21 +26,17 @@ export function Features({ data }: FeaturesProps) {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: index * 0.2 }}
-            className="group relative aspect-[4/3] cursor-pointer overflow-hidden"
+            className="group flex flex-col cursor-pointer"
           >
-            <Image
-              src={feature.image || "/placeholder.svg"}
-              alt={feature.title}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-110 filter grayscale group-hover:grayscale-0"
-            />
-            <motion.div
-              className="absolute inset-0 bg-white bg-opacity-40 transition-opacity duration-500 group-hover:bg-opacity-60"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            />
-            <div className="absolute inset-0 flex flex-col justify-end p-6">
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <Image
+                src={feature.image || "/placeholder.svg"}
+                alt={feature.title}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-110 filter grayscale group-hover:grayscale-0"
+              />
+            </div>
+            <div className="p-4">
               <motion.h3
                 className="text-xl font-light mb-2 text-gray-900"
                 initial={{ y: 20, opacity: 0 }}
@@ -50,7 +46,7 @@ export function Features({ data }: FeaturesProps) {
                 {feature.title}
               </motion.h3>
               <motion.p
-                className="text-sm text-gray-600 opacity-0 transform translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0"
+                className="text-sm text-gray-600"
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 + 0.4 }}

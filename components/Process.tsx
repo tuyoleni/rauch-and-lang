@@ -32,15 +32,9 @@ export function Process({ data }: ProcessProps) {
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-110 filter grayscale group-hover:grayscale-0"
             />
-            <motion.div
-              className="absolute inset-0 bg-white bg-opacity-40 transition-opacity duration-500 group-hover:bg-opacity-60"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            />
-            <div className="absolute inset-0 flex flex-col justify-end p-8">
+            <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
               <motion.h3
-                className="text-2xl font-light mb-2 text-gray-900"
+                className="text-2xl font-light mb-2 text-white"
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
@@ -48,7 +42,7 @@ export function Process({ data }: ProcessProps) {
                 {process.name}
               </motion.h3>
               <motion.p
-                className="text-lg text-gray-600 opacity-0 transform translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0"
+                className="text-lg text-white opacity-0 transform translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0"
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 + 0.4 }}
